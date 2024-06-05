@@ -6,12 +6,11 @@
 /*   By: toshota <toshota@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 15:29:39 by toshota           #+#    #+#             */
-/*   Updated: 2024/06/05 16:45:35 by toshota          ###   ########.fr       */
+/*   Updated: 2024/06/05 16:55:20 by toshota          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
-
 
 /** ヒープとスタックの使い分け
  * ■ヒープ
@@ -29,7 +28,7 @@ int main(void)
 	randomChump("zombie_stack");
 }
 
-__attribute__((destructor)) static void destructor()
-{
-	system("leaks -q a.out");
-}
+// __attribute__((destructor)) static void destructor()
+// {
+// 	system("leaks -q a.out");
+// }
