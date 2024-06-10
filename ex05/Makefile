@@ -6,7 +6,7 @@
 #    By: toshota <toshota@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/03 16:13:09 by toshota           #+#    #+#              #
-#    Updated: 2024/06/10 18:15:33 by toshota          ###   ########.fr        #
+#    Updated: 2024/06/10 21:42:57 by toshota          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,6 +52,7 @@ debug: re
 
 address: re
 
-test: re
+test:
+	./test.sh
 
 .PHONY:	all clean fclean re debug address
