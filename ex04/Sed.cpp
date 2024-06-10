@@ -6,14 +6,13 @@
 /*   By: toshota <toshota@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 17:03:54 by toshota           #+#    #+#             */
-/*   Updated: 2024/06/07 22:36:57 by toshota          ###   ########.fr       */
+/*   Updated: 2024/06/10 19:19:00 by toshota          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Sed.hpp"
 #define FILE_OPEN_ERRMSG "ft_sed: " + Sed::m_filename + ": failed to open"
 #define OUTFILE_NAME Sed::m_filename + ".replace"
-
 
 void Sed::replace_str(std::string &line, const size_t start_pos)
 {
@@ -42,11 +41,11 @@ Sed::Sed(std::string filename, std::string s1, std::string s2) : m_filename(file
 	// 入力ファイルを開く
 	std::ifstream infile(m_filename);
 	if (infile.is_open() == false)
-		IOUtils::exit_with_msg(FILE_OPEN_ERRMSG, IOUtils::ERROR);
+		IOUtils::exit_with_msg(FILE_OPEN_ERRMSG, 1);
 	// 出力ファイルを開く
 	std::ofstream outfile(OUTFILE_NAME);
 	if (outfile.is_open() == false)
-		IOUtils::exit_with_msg(FILE_OPEN_ERRMSG, IOUtils::ERROR);
+		IOUtils::exit_with_msg(FILE_OPEN_ERRMSG, 1);
 	// 1行ずつ見ていく
 	std::string line;
 	while (std::getline(infile, line))

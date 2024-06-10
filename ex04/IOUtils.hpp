@@ -6,7 +6,7 @@
 /*   By: toshota <toshota@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 17:33:00 by toshota           #+#    #+#             */
-/*   Updated: 2024/06/07 22:37:20 by toshota          ###   ########.fr       */
+/*   Updated: 2024/06/10 19:16:43 by toshota          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,9 @@
 
 #include <iostream>
 
-class IOUtils
+namespace IOUtils
 {
-public:
-	typedef enum s_exit_status
-	{
-		NORMAL,
-		ERROR
-	}		t_exit_status;
-	static void exit_with_msg(const std::string msg, const IOUtils::s_exit_status exit_status);
-};
+	void exit_with_msg(const std::string msg, const int exit_status);
+}
 
 #endif

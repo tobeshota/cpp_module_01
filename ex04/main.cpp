@@ -6,7 +6,7 @@
 /*   By: toshota <toshota@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 16:57:30 by toshota           #+#    #+#             */
-/*   Updated: 2024/06/07 20:29:55 by toshota          ###   ########.fr       */
+/*   Updated: 2024/06/10 19:16:56 by toshota          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 int	main(int argc, char **argv)
 {
 	if (argc != 4)
-		IOUtils::exit_with_msg(ARGC_ERRMSG, IOUtils::ERROR);
+		IOUtils::exit_with_msg(ARGC_ERRMSG, 1);
 	Sed(argv[1], argv[2], argv[3]);
 }
 
