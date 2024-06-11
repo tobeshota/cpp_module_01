@@ -6,7 +6,7 @@
 #    By: toshota <toshota@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/03 16:13:09 by toshota           #+#    #+#              #
-#    Updated: 2024/06/10 21:42:57 by toshota          ###   ########.fr        #
+#    Updated: 2024/06/11 12:15:37 by toshota          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,8 @@ RM			=	rm -rf
 OBJS_DIR	=	objs/
 
 SRCS		=	$(wildcard *.cpp)
+HEADERS		=	$(wildcard *.hpp)
+SHS			=	$(wildcard *.sh)
 OBJS		=	$(patsubst %.cpp, $(OBJS_DIR)%.o, $(SRCS))
 
 ifeq ($(MAKECMDGOALS), debug)
@@ -48,6 +50,9 @@ fclean:
 
 re:		fclean all
 
+format:
+	clang-format --style=Google -i $(SRCS) $(HEADERS)
+	shfmt -w $(SHS)
 debug: re
 
 address: re
@@ -55,4 +60,4 @@ address: re
 test:
 	./test.sh
 
-.PHONY:	all clean fclean re debug address
+.PHONY:	all clean fclean re format debug address test
