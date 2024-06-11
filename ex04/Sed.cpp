@@ -6,11 +6,12 @@
 /*   By: toshota <toshota@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 17:03:54 by toshota           #+#    #+#             */
-/*   Updated: 2024/06/10 19:19:00 by toshota          ###   ########.fr       */
+/*   Updated: 2024/06/11 18:55:06 by toshota          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Sed.hpp"
+#define ARGC_ERRMSG "usage:\n ft_sed <filename> <s1> <s2>"
 #define FILE_OPEN_ERRMSG "ft_sed: " + Sed::m_filename + ": failed to open"
 #define OUTFILE_NAME Sed::m_filename + ".replace"
 
@@ -38,6 +39,8 @@ void Sed::replace_str_per_line(std::string &line)
 
 Sed::Sed(std::string filename, std::string s1, std::string s2) : m_filename(filename), m_s1(s1), m_s2(s2)
 {
+	if (filename.empty() || s1.empty())
+		IOUtils::exit_with_msg(ARGC_ERRMSG, 1);
 	// 入力ファイルを開く
 	std::ifstream infile(m_filename);
 	if (infile.is_open() == false)
